@@ -6,17 +6,19 @@ chmod u+x $INSTALL_DIR/bin/aws
 
 export PATH=~/vendor/awscli/bin:$PATH
 
-if [ ! -d ".aws" ]; then
-    mkdir ~/.aws
+if [ ! -d ~/.aws ]; then
 
-    cat >> ~/.aws/credentials << EOF
-    [default]
-    aws_access_key_id = $AWS_KEY
-    aws_secret_access_key = $AWS_SECRET_KEY
-    EOF
+mkdir ~/.aws
 
-    cat >> ~/.aws/config << EOF 
-    [default]
-    region = $AWS_REGION
-    EOF
+cat >> ~/.aws/credentials << EOF
+[default]
+aws_access_key_id = $AWS_KEY
+aws_secret_access_key = $AWS_SECRET_KEY
+EOF
+
+cat >> ~/.aws/config << EOF 
+[default]
+region = $AWS_REGION
+EOF
+
 fi

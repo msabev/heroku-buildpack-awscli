@@ -9,10 +9,15 @@ Usage
 
 Example usage:
 
-    $ heroku config:add BUILDPACK_URL=https://github.com/odedlaz/heroku-buildpack-awscli.git
+    $ heroku buildpacks:add https://github.com/msabev/heroku-buildpack-awscli
 
-    $ heroku config:add AWS_ACCESS_KEY_ID=<aws-access-key>
+    $ heroku config:set AWS_KEY=<aws-access-key>
 
-    $ heroku config:add AWS_SECRET_ACCESS_KEY=<aws-secret-access-key>
+    $ heroku config:set AWS_SECRET_KEY=<aws-secret-access-key>
 
-    $ heroku config:add AWS_DEFAULT_REGION=<default-aws-region>
+    $ heroku config:set AWS_REGION=<default-aws-region>
+
+This buildpack also updates the PATH, so the command can be used directly, e.g.
+```
+$ aws s3 ls s3:\\bucket-name
+``` 
